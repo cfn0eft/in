@@ -84,3 +84,9 @@ function testGif(result) {
 function goToAdminPage() {
   window.location.href = "admin.html";
 }
+
+// エラー時のアラートを抑制（fetchでの送信失敗など）
+window.addEventListener("unhandledrejection", function(event) {
+  console.warn("送信失敗（無視）:", event.reason);
+  event.preventDefault();
+});
