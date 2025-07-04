@@ -59,3 +59,18 @@ img {
   height: auto;
   margin-top: 20px;
 }
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  background-color: #cccccc;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.back-button:hover {
+  background-color: #bbbbbb;
+}
