@@ -1,26 +1,20 @@
-<!-- ===== index.html ===== -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>抽選結果GIF</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>抽選結果.GIF</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>抽選結果GIF</h1>
-  <label for="idInput">従業員ID：</label>
-  <input id="idInput" type="text">
+  <h1>抽選結果.GIF</h1>
+  <input type="text" id="idInput" placeholder="IDを入力 (例: A001)" />
   <button onclick="drawLottery()">抽選開始！</button>
-
-  <div>
-    <img id="resultGif" src="" alt="抽選結果GIF">
-    <p id="resultText"></p>
-  </div>
-  
-<button onclick="testGif()">GIFテスト</button>
-
-  <a href="admin.html">🔐 管理者ログ画面へ</a>
+  <button onclick="testGif('win')">GIFテスト</button>
+  <a href="#" onclick="goToAdminPage()">🔒 管理者ログ画面へ</a>
+  <br />
+  <img id="resultGif" style="display: none;" />
+  <div id="resultText"></div>
   <script src="script.js"></script>
 </body>
 </html>
