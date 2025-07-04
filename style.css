@@ -74,3 +74,32 @@ img {
 .back-button:hover {
   background-color: #bbbbbb;
 }
+
+.admin-auth {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.admin-auth input[type="password"] {
+  width: 200px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-auth button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-auth button:hover {
+  background-color: #3a78c2;
+}
+
