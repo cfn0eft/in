@@ -2,23 +2,26 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>管理者ログ</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>管理者ログ</h2>
-  <div id="authArea">
-    <input type="password" id="adminPass" placeholder="管理者パスワード" />
-    <button onclick="authenticate()">認証</button>
-    <div id="authMessage"></div>
-  </div>
-  <div id="logArea" style="display:none;">
-    <table>
-      <thead><tr><th>ID</th><th>結果</th><th>時間</th></tr></thead>
-      <tbody id="logTableBody"></tbody>
+  <div class="container">
+    <a href="index.html" class="back-button">🔙 抽選ページに戻る</a>
+    <h1>抽選ログ</h1>
+    <table id="logTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>結果</th>
+          <th>日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ログ内容はJSで追加されます -->
+      </tbody>
     </table>
-    <button onclick="clearLog()">ログ削除</button>
   </div>
   <script src="admin.js"></script>
 </body>
