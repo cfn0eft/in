@@ -1,24 +1,23 @@
+
+<!-- admin.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>管理者ログ</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="admin-auth">
   <h1>管理者ログ</h1>
-  <input type="password" id="adminPassword" placeholder="管理者パスワード" />
-  <button onclick="authenticate()">認証</button>
-</div>
-  <div id="logArea" style="display:none;">
-    <table>
-      <thead><tr><th>ID</th><th>結果</th><th>時間</th></tr></thead>
-      <tbody id="logTableBody"></tbody>
-    </table>
+  <div class="admin-auth">
+    <input type="password" id="adminPass" placeholder="管理者パスワード" />
+    <button onclick="verifyAdmin()">認証</button>
+  </div>
+  <div id="logContainer" style="display: none">
+    <button onclick="goBack()">戻る</button>
     <button onclick="clearLog()">ログ削除</button>
-    <a href="index.html" class="back-button">🔙 抽選ページに戻る</a>
+    <table id="logTable"></table>
   </div>
   <script src="admin.js"></script>
 </body>
