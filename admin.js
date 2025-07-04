@@ -1,33 +1,23 @@
-function authenticate() {
-  const input = document.getElementById("adminPass").value.trim();
-  const authMsg = document.getElementById("authMessage");
-
-  if (input === "admin123") {
-    document.getElementById("authArea").style.display = "none";
-    document.getElementById("logArea").style.display = "block";
-    fetchLogs();
+const adminPassword = "admin";
+function verifyAdmin() {
+  const input = document.getElementById("adminPass").value;
+  if (input === adminPassword) {
+    document.querySelector(".admin-auth").style.display = "none";
+    document.getElementById("logContainer").style.display = "block";
+    loadLog();
   } else {
-    authMsg.textContent = "パスワードが間違っています";
-    authMsg.style.color = "red";
+    alert("パスワードが違います");
   }
 }
-
-function fetchLogs() {
+function goBack() {
+  window.location.href = "index.html";
+}
+function loadLog() {
+  const table = document.getElementById("logTable");
   const logs = JSON.parse(localStorage.getItem("lottery-log") || "[]");
-  const tbody = document.getElementById("logTableBody");
-  tbody.innerHTML = "";
-
-  logs.forEach(entry => {
-    const row = document.createElement("tr");
-    row.innerHTML = `<td>${entry.id}</td><td>${entry.result}</td><td>${entry.time}</td>`;
-    tbody.appendChild(row);
-  });
-
-  if (logs.length === 0) {
-    const row = document.createElement("tr");
-    row.innerHTML = `<td colspan="3">ログはありません</td>`;
-    tbody.appendChild(row);
-  }
+  table.innerHTML =
+    "<tr><th>ID</th><th>結果</th><th>時刻</th></tr>" +
+    logs.map((row) => `<tr><td>${row.id}</td><td>${row.result}</td><td>${row.time}</td></tr>`).join("");
 }
 
 function clearLog() {
@@ -38,6 +28,9 @@ function clearLog() {
         localStorage.removeItem(key);
       }
     });
-    fetchLogs();
+    loadLog();
   }
 }
+
+window.verifyAdmin = verifyAdmin;
+window.goBack = goBack;
