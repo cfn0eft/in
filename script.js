@@ -1,15 +1,13 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/あなたのURL/exec";
-
 let lotteryResults = {};
 
-// JSON読み込み（GitHub上のdata.jsonなど）
+// 外部JSONを読み込む
 fetch('data.json')
-  .then(res => res.json())
+  .then(response => response.json())
   .then(data => {
     lotteryResults = data;
   })
-  .catch(err => {
-    console.error("JSON読み込み失敗:", err);
+  .catch(error => {
+    console.error("JSON読み込み失敗:", error);
   });
 
 function drawLottery() {
@@ -29,6 +27,7 @@ function drawLottery() {
   }
 
   const result = lotteryResults[id];
+
   if (!result) {
     resultText.textContent = "⚠️ 該当するIDが見つかりません";
     resultText.style.display = "block";
@@ -42,38 +41,46 @@ function drawLottery() {
     return;
   }
 
-  // ローカル保存
+  // ログ保存
   const log = JSON.parse(localStorage.getItem("lottery-log") || "[]");
-  const time = new Date().toISOString();
-  log.push({ id, result, time });
+  log.push({ id, result, time: new Date().toISOString() });
   localStorage.setItem("lottery-log", JSON.stringify(log));
-  if (result === "win") localStorage.setItem(`win-${id}`, "true");
 
-  // Google Sheetsへ送信（ログ保存）
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      employee_id: id,
-      result,
-      time
-    })
-  }).catch(err => {
-    alert("⚠️ ログの送信に失敗しました");
-    console.error("送信エラー:", err);
-  });
+  if (result === "win") {
+    localStorage.setItem(`win-${id}`, "true");
+  }
 
   // GIF表示
   const gifName = result === "win" ? "Red.gif" : "White.gif";
-  gif.src = gifName + "?t=" + new Date().getTime();
+  gif.src = gifName + "?t=" + new Date().getTime(); // キャッシュ防止
   gif.style.display = "block";
 
+  // 結果表示（GIF再生後）
   setTimeout(() => {
     resultText.textContent = result === "win"
       ? "🎉 当たりです！おめでとうございます！"
       : "😢 はずれでした…";
     resultText.style.display = "block";
   }, 2500);
+}
+
+function testGif(result) {
+  const gif = document.getElementById("resultGif");
+  const resultText = document.getElementById("resultText");
+
+  gif.src = (result === "win" ? "Red.gif" : "White.gif") + "?t=" + new Date().getTime();
+  gif.style.display = "block";
+  resultText.style.display = "none";
+  resultText.textContent = "";
+
+  setTimeout(() => {
+    resultText.textContent = result === "win"
+      ? "🎉 当たりです！（テスト）"
+      : "😢 はずれです（テスト）";
+    resultText.style.display = "block";
+  }, 2500);
+}  
+
+function goToAdminPage() {
+  window.location.href = "admin.html";
 }
