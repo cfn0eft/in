@@ -53,3 +53,8 @@ img {
 #logTable th {
   background-color: #eee;
 }
+
+.result-text {
+  font-size: 1.4em;
+  margin-top: 1em;
+}
