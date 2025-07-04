@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>管理者ログ</h2>
-  <div id="authArea">
-    <input type="password" id="adminPass" placeholder="管理者パスワード" />
-    <button onclick="authenticate()">認証</button>
-    <div id="authMessage"></div>
-  </div>
+  <div class="admin-auth">
+  <h1>管理者ログ</h1>
+  <input type="password" id="adminPassword" placeholder="管理者パスワード" />
+  <button onclick="verifyPassword()">認証</button>
+</div>
   <div id="logArea" style="display:none;">
     <table>
       <thead><tr><th>ID</th><th>結果</th><th>時間</th></tr></thead>
