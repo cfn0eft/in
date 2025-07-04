@@ -78,7 +78,7 @@ function testGif(result) {
       ? "🎉 当たりです！（テスト）"
       : "😢 はずれです（テスト）";
     resultText.style.display = "block";
-  }, 2500);
+  }, 3500);
 }  
 
 function goToAdminPage() {
