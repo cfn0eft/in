@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>管理者ログ画面</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>管理者ログ画面</h1>
+
+  <div id="authArea">
+    <input id="adminPass" type="password" placeholder="管理者パスワード" />
+    <button onclick="authenticate()">ログイン</button>
+    <p id="authMessage"></p>
+  </div>
+
+  <div id="logArea" style="display: none;">
+    <h2>抽選ログ一覧</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>結果</th><th>日時</th></tr>
+      </thead>
+      <tbody id="logTableBody"></tbody>
+    </table>
+    <button onclick="window.location.href='index.html'">⬅️ 戻る</button>
+    <button onclick="clearLog()">🗑 ログを全削除</button>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
