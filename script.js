@@ -48,7 +48,7 @@ function drawLottery() {
         ? "🎉 当たりです！<br>おめでとうございます！<br>スクリーンショットをマネージャーに見せてね！"
         : "😢 はずれでした…";
       resultText.style.display = "block";
-    }, 3500);
+    }, 10000);
   };
 }
 
