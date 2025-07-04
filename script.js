@@ -41,7 +41,7 @@ function drawLottery() {
   setTimeout(() => {
     resultText.textContent = result === "win" ? "🎉 当たりです！画面をマネージャーに見せてね！" : "😢 はずれでした…";
     resultText.style.display = "block";
-  }, 2500);
+  }, 8000);
 }
 window.drawLottery = drawLottery;
 window.goToAdminPage = () => (window.location.href = "admin.html");
