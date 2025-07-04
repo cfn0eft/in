@@ -1,137 +1,61 @@
-/* ===== 共通設定 ===== */
 body {
   font-family: sans-serif;
-  background: #f7f9fc;
-  color: #333;
+  background: #f2f5f8;
   text-align: center;
-  padding: 1em;
   margin: 0;
+  padding: 0;
 }
 
-h1, h2 {
-  margin-top: 0.5em;
-  font-size: 1.5em;
+.container {
+  margin-top: 50px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 1em;
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.button-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 button {
-  margin: 0.5em;
-  padding: 0.7em 1.2em;
-  font-size: 1em;
-  cursor: pointer;
-  border: none;
-  background-color: #4d90fe;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  background-color: #4285f4;
   color: white;
-  border-radius: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #357ae8;
+  background-color: #3367d6;
 }
 
-input[type="text"],
-input[type="password"] {
-  padding: 0.6em;
+.admin-link {
   font-size: 1em;
-  width: 90%;
-  max-width: 300px;
-  margin: 0.5em auto;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  color: #3333cc;
+  text-decoration: none;
 }
 
-/* ===== テーブル設定 ===== */
-table {
-  margin: 1em auto;
-  width: 95%;
-  max-width: 800px;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  font-size: 0.95em;
+.admin-link:hover {
+  text-decoration: underline;
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 0.6em;
-  text-align: center;
-  word-break: break-word;
-}
-
-th {
-  background-color: #e9f1ff;
-}
-
-tr:nth-child(even) {
-  background-color: #f8f8f8;
-}
-
-/* ===== 抽選結果GIF表示 ===== */
-#resultGif {
-  display: none;
-  width: 300px; /* お好みで調整：200〜400px推奨 */
-  height: auto;
-  margin: 1em auto;
-}
-
-/* ===== 管理者認証エリア ===== */
-#authArea {
-  margin-bottom: 2em;
-}
-
-/* ===== 結果テキスト表示 ===== */
-#resultText {
+.result {
   font-size: 1.2em;
-  margin-top: 1em;
+  margin-top: 20px;
 }
 
-/* ===== モバイル対応レスポンシブ ===== */
-@media (max-width: 600px) {
-  h1, h2 {
-    font-size: 1.3em;
-  }
-
-  table {
-    font-size: 0.85em;
-  }
-
-  button {
-    width: 90%;
-    max-width: 300px;
-  }
-}
-
-/* ===== Google Sheets ログ表示の追加スタイル ===== */
-#logStatus {
-  font-size: 0.95em;
-  color: #666;
-  margin-bottom: 1em;
-}
-
-#logTableWrapper {
-  overflow-x: auto;
-  margin-top: 1em;
-}
-
-#logTable {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 900px;
-  border-collapse: collapse;
-  font-size: 0.9em;
-}
-
-#logTable th,
-#logTable td {
-  border: 1px solid #ccc;
-  padding: 0.5em;
-  text-align: center;
-}
-
-#logTable th {
-  background-color: #e3f2fd;
-}
-
-#logTable tr:nth-child(even) {
-  background-color: #f9f9f9;
+img {
+  width: 180px;
+  height: auto;
+  margin-top: 20px;
 }
