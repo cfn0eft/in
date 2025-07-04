@@ -36,13 +36,22 @@ function drawLottery() {
   if (result === "win") {
     localStorage.setItem(`win-${id}`, "true");
   }
+
+  // GIFを設定
   gif.src = (result === "win" ? "Red.gif" : "White.gif") + `?t=${Date.now()}`;
   gif.style.display = "block";
-  setTimeout(() => {
-    resultText.textContent = result === "win" ? "🎉 当たりです！画面をマネージャーに見せてね！" : "😢 はずれでした…";
-    resultText.style.display = "block";
-  }, 8000);
+
+  // GIFの読み込みが完了した後に結果を表示
+  gif.onload = function() {
+    setTimeout(() => {
+      resultText.innerHTML = result === "win"
+        ? "🎉 当たりです！<br>おめでとうございます！<br>スクリーンショットをマネージャーに見せてね！"
+        : "😢 はずれでした…";
+      resultText.style.display = "block";
+    }, 3500);
+  };
 }
+
 window.drawLottery = drawLottery;
 window.goToAdminPage = () => (window.location.href = "admin.html");
 window.addEventListener("unhandledrejection", (e) => {
